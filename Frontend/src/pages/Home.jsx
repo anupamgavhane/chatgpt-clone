@@ -31,7 +31,7 @@ const Home = () => {
   });
   const isLoading = useSelector((state) => state.messages.isLoading);
 
-  const currentChat = chats.find((chat) => chat.id === currentChatId);
+  const currentChat = chats?.find((chat) => chat.id === currentChatId);
 
   // Fetch all user chats on component mount
   useEffect(() => {

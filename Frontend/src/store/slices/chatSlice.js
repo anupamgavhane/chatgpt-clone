@@ -91,7 +91,7 @@ const chatSlice = createSlice({
       })
       .addCase(fetchChatsAsync.fulfilled, (state, action) => {
   state.loading = false;
-  state.chats = action.payload.chats;
+  state.chats = action.payload;
 
   if (state.chats.length > 0 && !state.currentChatId) {
     state.currentChatId = state.chats[0].id;
