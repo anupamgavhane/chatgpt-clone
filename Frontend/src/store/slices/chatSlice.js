@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://chatgpt-clone-y0jx.onrender.com//api';
 
 // Async thunk to create a new chat
 export const createChatAsync = createAsyncThunk(

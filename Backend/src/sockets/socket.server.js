@@ -10,7 +10,7 @@ const { text } = require("express");
 function initSocketServer(httpServer) {
     const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: true,
     methods: ["GET", "POST"],
     credentials: true
   }
@@ -183,13 +183,13 @@ const { chat, content } = payload;
       })
 
     } catch (err) {
-      console.error("Socket AI error:", err);
+  console.error("Socket AI error:", err);
 
-      socket.emit("ai-response", {
-        content: "AI failed to respond",
-        chat: chat
-      });
-    }
+  socket.emit("ai-response", {
+    content: "AI failed to respond",
+    chat: messagePayload?.chat
+  });
+}
   });
 
 });

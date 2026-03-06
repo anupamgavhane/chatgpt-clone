@@ -1,38 +1,36 @@
-import React, { useState } from 'react'
-import '../styles/Auth.css'
-import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
-
+import React, { useState } from "react";
+import "../styles/Auth.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
-
   const handleSubmit = async (e) => {
-  e.preventDefault()
-  setLoading(true)
-  setError('')
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-  try {
-    const res = await axios.post(
-      "http://localhost:3000/api/auth/login",
-      { email, password },
-      { withCredentials: true }
-    )
+    try {
+      const res = await axios.post(
+        "https://chatgpt-clone-y0jx.onrender.com//api/auth/login",
+        { email, password },
+        { withCredentials: true },
+      );
 
-    console.log(res)
-    navigate('/')
-  } catch (err) {
-    console.error(err)
-    setError(err?.response?.data?.message || "Login failed")
-  } finally {
-    setLoading(false)
-  }
-}
+      console.log(res);
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      setError(err?.response?.data?.message || "Login failed");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="auth-container">
@@ -70,22 +68,22 @@ const Login = () => {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={loading}
-          >
-            {loading ? 'Signing in...' : 'Sign In'}
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
         <div className="auth-footer">
-          <p>Don't have an account? <a href="/register">Create one</a></p>
-          <p><a href="/">Back to home</a></p>
+          <p>
+            Don't have an account? <a href="/register">Create one</a>
+          </p>
+          <p>
+            <a href="/">Back to home</a>
+          </p>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
