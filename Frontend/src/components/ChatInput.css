@@ -1,0 +1,124 @@
+@import url('../styles/theme.css');
+
+.chat-input-form {
+  padding: var(--spacing-lg);
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.input-container {
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-end;
+}
+
+/* Modern minimal input */
+.chat-input {
+  flex: 1;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: var(--font-base);
+  outline: none;
+  transition: all var(--transition-base);
+  font-family: var(--font-body);
+  letter-spacing: inherit;
+  line-height: var(--line-height-normal);
+  resize: none;
+  max-height: 120px;
+}
+
+.chat-input:focus {
+  border-color: var(--text-primary);
+  background: var(--bg-primary);
+  box-shadow: inset 0 0 0 1px var(--text-primary), 0 0 0 3px var(--focus-ring);
+}
+
+.chat-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--bg-tertiary);
+}
+
+/* Send Button - Minimal*/
+.send-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+  font-weight: var(--font-medium);
+}
+
+.send-button:hover:not(:disabled) {
+  background: var(--text-secondary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.send-button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.send-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.send-button svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* Input Hint */
+.input-hint {
+  font-size: var(--font-xs);
+  color: var(--text-tertiary);
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .chat-input-form {
+    padding: var(--spacing-md);
+  }
+
+  .input-container {
+    gap: var(--spacing-sm);
+  }
+
+  .chat-input {
+    padding: var(--spacing-md);
+    font-size: 16px; /* Prevent zoom */
+  }
+
+  .input-hint {
+    display: none;
+  }
+
+  .send-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .send-button svg {
+    width: 16px;
+    height: 16px;
+  }
+}

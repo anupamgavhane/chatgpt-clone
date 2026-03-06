@@ -1,0 +1,73 @@
+@import url('../styles/theme.css');
+
+.theme-toggle {
+  position: fixed;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: var(--z-fixed);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  box-shadow: var(--shadow-lg);
+  transform: scale(1.1);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Accessibility */
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--primary-main);
+  outline-offset: 2px;
+}
+
+/* Mobile optimized */
+@media (max-width: 640px) {
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+  }
+
+  .theme-toggle svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme='dark'] .theme-toggle {
+  background: var(--bg-secondary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .theme-toggle:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}

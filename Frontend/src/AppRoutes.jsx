@@ -1,0 +1,21 @@
+import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import ThemeToggle from './components/ThemeToggle'
+
+const AppRoutes = () => {
+  return (
+    <BrowserRouter>
+      <ThemeToggle />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/login' element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default AppRoutes

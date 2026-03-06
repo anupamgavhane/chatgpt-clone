@@ -1,0 +1,54 @@
+@import url('../styles/theme.css');
+
+.chat-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.error-notification {
+  position: fixed;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  background-color: var(--error-light);
+  color: var(--error);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--error);
+  max-width: 400px;
+  box-shadow: var(--shadow-md);
+  animation: slideInUp var(--transition-base);
+  z-index: 100;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.error-notification p {
+  margin: 0;
+  font-size: var(--font-sm);
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .chat-container {
+    flex-direction: column;
+  }
+
+  .error-notification {
+    bottom: var(--spacing-md);
+    right: var(--spacing-md);
+    left: var(--spacing-md);
+    max-width: none;
+  }
+}
+
