@@ -44,7 +44,7 @@ const Home = () => {
     const loadMessages = async () => {
       try {
         const res = await axios.get(
-          `https://chatgpt-clone-y0jx.onrender.com//api/messages/${currentChatId}`,
+          `https://chatgpt-clone-y0jx.onrender.com/api/messages/${currentChatId}`,
           { withCredentials: true },
         );
 
@@ -119,7 +119,7 @@ const Home = () => {
 
     try {
       const res = await axios.get(
-        `https://chatgpt-clone-y0jx.onrender.com//api/messages/${chatId}`,
+        `https://chatgpt-clone-y0jx.onrender.com/api/messages/${chatId}`,
         { withCredentials: true },
       );
 

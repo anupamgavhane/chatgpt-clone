@@ -17,7 +17,7 @@ const Login = () => {
 
     try {
       const res = await axios.post(
-        "https://chatgpt-clone-y0jx.onrender.com//api/auth/login",
+        "https://chatgpt-clone-y0jx.onrender.com/api/auth/login",
         { email, password },
         { withCredentials: true },
       );

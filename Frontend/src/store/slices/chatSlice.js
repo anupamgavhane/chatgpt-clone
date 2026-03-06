@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const API_BASE_URL = 'https://chatgpt-clone-y0jx.onrender.com//api';
+const API_BASE_URL = 'https://chatgpt-clone-y0jx.onrender.com/api';
 
 // Async thunk to create a new chat
 export const createChatAsync = createAsyncThunk(
@@ -90,12 +90,13 @@ const chatSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchChatsAsync.fulfilled, (state, action) => {
-        state.loading = false;
-        state.chats = action.payload;
-        if (action.payload.length > 0 && !state.currentChatId) {
-          state.currentChatId = action.payload[0].id;
-        }
-      })
+  state.loading = false;
+  state.chats = action.payload.chats;
+
+  if (state.chats.length > 0 && !state.currentChatId) {
+    state.currentChatId = state.chats[0].id;
+  }
+})
       .addCase(fetchChatsAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
